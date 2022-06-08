@@ -17,6 +17,8 @@ import com.example.traficapplication.R;
 import com.example.traficapplication.activities.activities.CarActivity;
 import com.example.traficapplication.activities.activities.DocumentDetailActivity;
 import com.example.traficapplication.activities.activities.DocumentsActivity;
+import com.example.traficapplication.activities.activities.Question1Activity;
+import com.example.traficapplication.activities.activities.QuestionActivity;
 import com.example.traficapplication.activities.models.Document;
 import com.example.traficapplication.activities.models.Law;
 
@@ -50,8 +52,7 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.Docume
         holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DocumentDetailActivity.class);
-                intent.putExtra("lawPos",String.valueOf(holder.getAdapterPosition()));
+                Intent intent = new Intent(context, Question1Activity.class);
                 context.startActivity(intent);
             }
         });

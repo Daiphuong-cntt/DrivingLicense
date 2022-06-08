@@ -51,13 +51,14 @@ public class DocumentsActivity extends AppCompatActivity {
         recyclerView.setAdapter(documentAdapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
-        itemAdd(R.drawable.exclamation,"60 câu hỏi điểm liệt","60 Câu hỏi điểm liệt",2);
-        itemAdd(R.drawable.essay,"Khái niệm và quy tắc","Gồm 139 câu hỏi (41 câu điểm liệt)",2);
-        itemAdd(R.drawable.cone,"văn hóa và đạo đức lái xe","Gồm 21 câu hỏi (4 câu điểm liệt)",2);
-        itemAdd(R.drawable.driving_school,"kỹ thuật lái xe","Gồm 18 câu hỏi (5 câu điểm liệt)",2);
-        itemAdd(R.drawable.technical_support,"cấu tạo và sửa chữa","Gồm 7 câu hỏi",2);
-        itemAdd(R.drawable.traffic_sign,"biển báo đường bộ","Gồm 182 câu hỏi",2);
-        itemAdd(R.drawable.intersection,"Sa hình","Gồm 83 câu hỏi",2);
+
+        itemAdd(R.drawable.essay,"Khái niệm và quy tắc","Gồm 166 câu hỏi",166);
+        itemAdd(R.drawable.exclamation,"Nghiệp vụ vận tải","Gồm 26 câu",26);
+        itemAdd(R.drawable.cone,"văn hóa và đạo đức lái xe","Gồm 21 câu hỏi",21);
+        itemAdd(R.drawable.driving_school,"kỹ thuật lái xe","Gồm 56 câu hỏi",56);
+        itemAdd(R.drawable.technical_support,"cấu tạo và sửa chữa","Gồm 35 câu hỏi",35);
+        itemAdd(R.drawable.traffic_sign,"biển báo đường bộ","Gồm 182 câu hỏi",182);
+        itemAdd(R.drawable.intersection,"Sa hình","Gồm 114 câu hỏi",114);
         documentAdapter.notifyDataSetChanged();
 
     }
