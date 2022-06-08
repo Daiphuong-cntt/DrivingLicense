@@ -7,9 +7,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.traficapplication.R;
+import com.example.traficapplication.activities.activities.QuestionCategoryActivity;
 import com.example.traficapplication.activities.models.Question;
 
 import java.util.List;
@@ -40,6 +44,7 @@ import java.util.List;
         this.questions = questions;
     }
 
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -50,25 +55,13 @@ import java.util.List;
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Question q = questions.get(position);
-        ((QuestionViewHolder)holder).itemTitle.setText(q.getQuestion());
+        Question currenItem = questions.get(position);
+        ((QuestionViewHolder)holder).itemTitle.setText(currenItem.getQuestion());
+        ((QuestionViewHolder)holder).answer.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+        ((QuestionViewHolder)holder).answer.setItemAnimator(new DefaultItemAnimator());
+        AnswerAdapter answerAdapter = new AnswerAdapter( context,currenItem.getAnswer());
+        ((QuestionViewHolder)holder).answer.setAdapter(answerAdapter);
     }
-
-
-//    @NonNull
-//    @Override
-//    public QuestionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(parent.getContext())
-//                .inflate(R.layout.item_question,parent,false);
-//        return new QuestionAdapter.QuestionViewHolder(view);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull QuestionViewHolder holder, int position) {
-//        Question q = questions.get(position);
-//        holder.itemTitle.setText(q.getQuestion());
-//    }
-
     @Override
     public int getItemCount() {
         if (questions != null){
@@ -79,9 +72,11 @@ import java.util.List;
 
     public class QuestionViewHolder extends RecyclerView.ViewHolder {
         private TextView itemTitle;
+        private RecyclerView answer;
         public QuestionViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemTitle = itemView.findViewById(R.id.tv_item_quest_title);
+            itemTitle = itemView.findViewById(R.id.tv_quest);
+            answer = itemView.findViewById(R.id.answer);
         }
     }
 
