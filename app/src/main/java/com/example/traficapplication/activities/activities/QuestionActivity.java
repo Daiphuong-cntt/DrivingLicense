@@ -78,7 +78,7 @@ public class QuestionActivity extends AppCompatActivity {
         Bundle b = iin.getExtras();
         String id = (String) b.get("id");
         getData(id);
-        oldPos();
+
         mRecyclerView = findViewById(R.id.rcv_question);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -122,7 +122,7 @@ public class QuestionActivity extends AppCompatActivity {
 
             }
         });
-
+        oldPos();
     }
 
     private void initUi() {
